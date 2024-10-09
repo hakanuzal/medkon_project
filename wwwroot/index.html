@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giriş Sayfası</title>
+    <!-- Mevcut CSS dosyanızın yolu -->
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <h1>Medkon Test Uygulaması - Giriş</h1>
+
+    @if (ViewBag.ErrorMessage != null)
+    {
+    <div style="color:red;">@ViewBag.ErrorMessage</div>
+    }
+
+    <form id="loginForm" method="post" asp-controller="Login" asp-action="Login">
+        <label for="username">Kullanıcı Adı:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Şifre:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit">Giriş Yap</button>
+    </form>
+
+    <!-- Mevcut JS dosyanızın yolu -->
+    <script src="/js/app.js"></script>
+</body>
+</html>

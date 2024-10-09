@@ -1,0 +1,40 @@
+﻿@model List<MedkonTestProject.Models.User>
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Paneli</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <h1>Admin Paneli</h1>
+    <h2>Kullanıcı Yönetimi</h2>
+    <form method="post" action="/api/Admin/create-user">
+        <label for="username">Kullanıcı Adı:</label>
+        <input type="text" id="username" name="username" required><br><br>
+        <label for="password">Şifre:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        <label for="role">Rol:</label>
+        <select id="role" name="role">
+            <option value="Admin">Admin</option>
+            <option value="Normal User">Normal User</option>
+            <option value="Manager">Yönetici</option>
+        </select>
+        <button type="submit">Kullanıcı Oluştur</button>
+    </form>
+    <h3>Mevcut Kullanıcılar:</h3>
+    <ul>
+        @foreach (var user in Model)
+        {
+            <li>
+                @user.Username - @user.Role
+                <form method="post" action="/api/Admin/delete-user/@user.Id" style="display:inline;">
+                    <button type="submit">Sil</button>
+                </form>
+            </li>
+        }
+    </ul>
+</body>
+</html>

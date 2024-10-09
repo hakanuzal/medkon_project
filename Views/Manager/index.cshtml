@@ -1,0 +1,30 @@
+﻿@model List<MedkonTestProject.Models.Log>
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yönetici Paneli</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <h1>Yönetici Paneli</h1>
+    <h2>Giriş Çıkış Logları</h2>
+    <table>
+        <tr>
+            <th>Kullanıcı ID</th>
+            <th>Giriş Zamanı</th>
+            <th>Çıkış Zamanı</th>
+        </tr>
+        @foreach (var log in Model)
+        {
+            <tr>
+                <td>@log.UserId</td>
+                <td>@log.LoginTime</td>
+                <td>@log.LogoutTime</td>
+            </tr>
+        }
+    </table>
+</body>
+</html>
